@@ -1,6 +1,6 @@
 // INTERFACE = model for the data  = MAP oject with the creation of MODELS => User.ts
 
-import {Component} from '@angular/core'
+import {Component, OnInit} from '@angular/core'
 import { Statement } from '@angular/compiler';
 
 import {User} from '../../models/User'
@@ -9,20 +9,17 @@ import {User} from '../../models/User'
   selector:'app-user',
   templateUrl: './user.component.html',
   styleUrls:['./User.component.scss'],
-  // template:'<h2>John Doe</h2>'
-  // styles:[`
-  //     h2 {
-  //       color:blue
-  //     }`
-  //   ]
 })
 
-export class UserComponent {
+export class UserComponent implements OnInit {
   // Properties
   user: User;
 
   // Methods
   constructor(){ // Add the Datas
+  
+  }
+  ngOnInit(){
     this.user={
       firstName: 'John',
       lastName: 'Doe',
