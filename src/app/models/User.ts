@@ -8,6 +8,7 @@ export interface User {
     state?: string,
   },
   image?: string,
+  isActive?:boolean,
 }
 
 // ? = not mendatory

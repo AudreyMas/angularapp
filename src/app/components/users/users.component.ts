@@ -8,9 +8,10 @@ import { User } from '../../models/User'
 })
 export class UsersComponent implements OnInit {
   users: User[];
-  showExtended: boolean = true;
-  loaded: boolean = false;
-  enableAdd: boolean= false;
+  showExtended: boolean = true; //show informations about user
+  loaded: boolean = false; //loading text 
+  enableAdd: boolean= true; // active or not the button
+  currentClasses = {}; // style of the button
 
 
   constructor() { //injected
@@ -24,13 +25,14 @@ export class UsersComponent implements OnInit {
       {
         firstName: 'John',
         lastName: 'Doe',
-        age: 30,
+        age: 80,
         address: {
           street: '50 Main st',
           city: 'Boston',
           state: 'MA',
         },
-        image: 'http://lorempixel.com//600/600/people/3'
+        image: 'http://lorempixel.com//600/600/people/3',
+        isActive: true,
       },
       {
         firstName: 'Kevin',
@@ -63,10 +65,18 @@ export class UsersComponent implements OnInit {
     //   firstName: 'David',
     //   lastName: 'Jackson', 
     // })
+    this.setCurrentClasses();
   }
 
   addUser(user: User) {
     this.users.push(user);
+  }
+
+  setCurrentClasses(){
+    this.currentClasses ={
+      'btn-success' : this.enableAdd,
+      'big-text': this.showExtended
+    }
   }
 
 }
