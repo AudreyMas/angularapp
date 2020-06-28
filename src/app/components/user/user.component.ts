@@ -1,4 +1,5 @@
 import {Component} from '@angular/core'
+import { Statement } from '@angular/compiler';
 
 @Component({
   selector:'app-user',
@@ -15,21 +16,19 @@ import {Component} from '@angular/core'
 export class UserComponent {
   // Properties
   firstName='John';
-  lastName = 'Doe';
+  lastName = 'Smith';
   age = 30;
+  address = {
+    street: '50 Main st',
+    city: 'Boston',
+    state: 'MA'
+  }
   // Methods
   constructor(){ //Initialize the component //Injected dependencies
-    //this.sayHello();
-    console.log(this.age);
-    this.hasBirthday();
-    console.log(this.age);
+
   }
 
-  sayHello(){
-    console.log(`Hello ${this.firstName}`) // or old js = Hello ''+''+this.firstName
-  }
-
-  hasBirthday(){
-    this.age +=1;
+  showAge(){
+    return this.age + 2;
   }
 }
