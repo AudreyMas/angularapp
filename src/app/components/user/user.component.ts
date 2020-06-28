@@ -1,5 +1,9 @@
+// INTERFACE = model for the data  = MAP oject with the creation of MODELS => User.ts
+
 import {Component} from '@angular/core'
 import { Statement } from '@angular/compiler';
+
+import {User} from '../../models/User'
 
 @Component({
   selector:'app-user',
@@ -15,49 +19,21 @@ import { Statement } from '@angular/compiler';
 
 export class UserComponent {
   // Properties
-  firstName: string;
-  lastName: string;
-  age: number;
-  address;
-
-  foo: any;
-  hasKids: boolean;
-  numberArray : number [];
-  stringArray: string [];
-  mixedArray: any;
-  myTuple: [string, number, boolean];
-  unusable: void;
-  u: undefined;
-  n: null;
+  user: User;
 
   // Methods
-  constructor(){ //Initialize the component //Injected dependencies
-    this.firstName = 'John';
-    this.lastName = 'Doe';
-    this.age = 30;
-    this.address ={
-      street: '50 Main st',
-      city: 'Boston',
-      state: 'MA'
-    };
-    this.foo= true;
-    this.hasKids= true;
-    this.numberArray= [1,2,3];
-    this.stringArray= ['hello', 'world'];
-    this.mixedArray= [true, undefined, 1,'hello'];
-    this.myTuple = ['hello',1, true];
-    this.unusable = undefined;
-    this.u = undefined;
-    this.n = null;
-
-    console.log(this.addNumbers(2,3));
+  constructor(){ // Add the Datas
+    this.user={
+      firstName: 'John',
+      lastName: 'Doe',
+      age: 30,
+      address: {
+        street: '50 Main st',
+        city: 'Boston',
+        state: 'MA',
+      }
+    }
   }
 
-  showAge(){
-    return this.age + 2;
-  }
-
-  addNumbers(num1:number, num2: number): number{
-    return num1 + num2
-  }
 }
+
