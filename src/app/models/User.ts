@@ -9,6 +9,8 @@ export interface User {
   },
   image?: string,
   isActive?:boolean,
+  balance? : number,
+  registered?: any, 
 }
 
 // ? = not mendatory

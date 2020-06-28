@@ -34,6 +34,8 @@ export class UsersComponent implements OnInit {
         },
         image: 'http://lorempixel.com//600/600/people/3',
         isActive: true,
+        balance:100,
+        registered: new Date('01/02/2018 08:30:00')
       },
       {
         firstName: 'Kevin',
@@ -44,7 +46,10 @@ export class UsersComponent implements OnInit {
           city: 'Miami',
           state: 'FL',
         },
-        image: 'http://lorempixel.com//600/600/people/2'
+        image: 'http://lorempixel.com//600/600/people/2',
+        isActive: false,
+        balance:200,
+        registered: new Date('03/11/2017 06:30:00')
       },
       {
         firstName: 'Karen',
@@ -55,7 +60,10 @@ export class UsersComponent implements OnInit {
           city: 'Danemark',
           state: 'MA',
         },
-        image: 'http://lorempixel.com//600/600/people/1'
+        image: 'http://lorempixel.com//600/600/people/1',
+        isActive: true,
+        balance:50,
+        registered: new Date('11/02/2016 10:30:00')
 
       }
     ];

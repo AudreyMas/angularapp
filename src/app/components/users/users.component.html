@@ -10,11 +10,14 @@
 
       </div>
       <div class="col-sm-8">
-        <h3 [ngStyle]="currentStyles">{{user.firstName}} {{user.lastName}}</h3>
+        <h3 [ngStyle]="currentStyles">{{user.firstName | uppercase}} {{user.lastName | lowercase}}</h3>
         <!-- <h3><span [textContent]="user.firstName"></span> {{user.lastName}}</h3> -->
         <ul class="list-group" *ngIf="showExtended && user.age && user.address">
           <li class="list-group-item">Age: {{user.age}}</li>
           <li class="list-group-item"> Adress: {{user.address.street}} {{user.address.city}} {{user.address.state}}</li>
+        <li class="list-group-item">Balance: {{user.balance | currency:"GBP":"symbol"}} until {{.5 |percent}}</li>
+        <li class="list-group-item">Joined: {{user.registered | date}}</li>
+        <li class="list-group-item" ngNonBindable><pre>Décimal nombre: {{ 5 | number:"1.2"}}</pre></li>
         </ul>
       </div>
 
