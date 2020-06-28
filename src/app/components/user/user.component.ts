@@ -13,5 +13,23 @@ import {Component} from '@angular/core'
 })
 
 export class UserComponent {
-  
+  // Properties
+  firstName='John';
+  lastName = 'Doe';
+  age = 30;
+  // Methods
+  constructor(){ //Initialize the component //Injected dependencies
+    //this.sayHello();
+    console.log(this.age);
+    this.hasBirthday();
+    console.log(this.age);
+  }
+
+  sayHello(){
+    console.log(`Hello ${this.firstName}`) // or old js = Hello ''+''+this.firstName
+  }
+
+  hasBirthday(){
+    this.age +=1;
+  }
 }
