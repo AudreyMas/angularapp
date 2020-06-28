@@ -8,46 +8,55 @@ import { User } from '../../models/User'
 })
 export class UsersComponent implements OnInit {
   users: User[];
+  showExtended: boolean = true;
+  loaded: boolean= false;
 
 
   constructor() { //inhected
   }
 
-  
+
   //Methods
   ngOnInit() { //ajx place or service
-    this.users = [
-      {
-        firstName: 'John',
-        lastName: 'Doe',
-        age: 30,
-        address: {
-          street: '50 Main st',
-          city: 'Boston',
-          state: 'MA',
+    setTimeout(() => {
+      this.users = [
+        {
+          firstName: 'John',
+          lastName: 'Doe',
+          age: 30,
+          address: {
+            street: '50 Main st',
+            city: 'Boston',
+            state: 'MA',
+          }
+        },
+        {
+          firstName: 'Kevin',
+          lastName: 'lala',
+          age: 30,
+          address: {
+            street: '5 Los st',
+            city: 'Miami',
+            state: 'FL',
+          }
+        },
+        {
+          firstName: 'Karen',
+          lastName: 'Polo',
+          age: 15,
+          address: {
+            street: '2 california st',
+            city: 'Danemark',
+            state: 'MA',
+          }
         }
-      },
-      {
-        firstName: 'Kevin',
-        lastName: 'lala',
-        age: 30,
-        address: {
-          street: '5 Los st',
-          city: 'Miami',
-          state: 'FL',
-        }
-      },
-      {
-        firstName: 'Karen',
-        lastName: 'Polo',
-        age: 15,
-        address: {
-          street: '2 california st',
-          city: 'Danemark',
-          state: 'MA',
-        }
-      }
-    ];
+      ];
+      
+      this.loaded=true;
+    },2000);
+    
+
+    this.showExtended = false;
 
     this.addUser({
       firstName: 'David',
