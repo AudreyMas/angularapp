@@ -7,10 +7,20 @@ import { User } from '../../models/User'
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
+  user: User = {
+    firstName: '',
+    lastName: '',
+    age: null,
+    address: {
+      street: '',
+      city: '',
+      state: '',
+    }
+  };
   users: User[];
   showExtended: boolean = true; //show informations about user
   loaded: boolean = false; //loading text 
-  enableAdd: boolean = true; // active or not the button
+  enableAdd: boolean = false; // active or not the button
   showUserForm: boolean = false;
 
   constructor() { //injected
@@ -65,11 +75,25 @@ export class UsersComponent implements OnInit {
     this.loaded = true;
   }
 
-  addUser(user: User) {
-    this.users.push(user);
+  addUser() {
+    this.user.isActive = true;
+    this.user.registered = new Date();
+
+    this.users.unshift(this.user); //unshift = push but sent to the beginning of the array
+
+    this.user = {
+      firstName: '',
+      lastName: '',
+      age: null,
+      address: {
+        street: '',
+        city: '',
+        state: '',
+      }
+    }
   }
 
-  // toggleHide(user: User) {
+  // toggleHide(user: User) {// other method on html file
   //   user.hide = !user.hide;
   // }
 
@@ -78,7 +102,7 @@ export class UsersComponent implements OnInit {
     e.preventDefault();
   }
 
-  fireEvent(e){
+  fireEvent(e) {
     console.log(e.target.value);
     console.log(e.type);
 
