@@ -5,15 +5,17 @@
   <form (submit)="onSubmit($event)">
     <div class="form-group">
       <label>First Name</label>
-      <input (keydown)="fireEvent($event)" tye="text" class="form-control" name="firstName">
-      <input (keypress)="fireEvent($event)" tye="text" class="form-control" name="firstName">
-      <input (keyup)="fireEvent($event)" tye="text" class="form-control" name="firstName">
-      <input (focus)="fireEvent($event)" tye="text" class="form-control" name="firstName">
-      <input (blur)="fireEvent($event)" tye="text" class="form-control" name="firstName">
-      <input (cut)="fireEvent($event)" tye="text" class="form-control" name="firstName">
-      <!-- exemple: not let the user paste a text -->
-      <input (paste)="fireEvent($event)" tye="text" class="form-control" name="firstName">
-      <input (copy)="fireEvent($event)" tye="text" class="form-control" name="firstName">
+      <input (keydown)="fireEvent($event)" type="text" class="form-control" name="firstName">
+      <label> Name</label>
+      <input (keydown)="fireEvent($event)" type="text" class="form-control" name="lastName">
+      <label>Age</label>
+      <input type="number" class="form-control" name="age">
+      <label>Street Adress</label>
+      <input (keydown)="fireEvent($event)" type="text" class="form-control" name="street">
+      <label>City</label>
+      <input (keydown)="fireEvent($event)" type="text" class="form-control" name="city">
+      <label>State</label>
+      <input (keydown)="fireEvent($event)" type="text" class="form-control" name="state">
 
     </div>
     <button (click)="addUser({firstName: 'Mary', lastName:'Williams', isActive: true})" [disabled]="!enableAdd" class="btn btn-block mb-3"> Add New User</button>
