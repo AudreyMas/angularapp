@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, ViewChild } from '@angular/core';
+//ViewChild get access to the child component
 import { User } from '../../models/User'
 @Component({
   selector: 'app-users',
@@ -17,6 +17,7 @@ export class UsersComponent implements OnInit {
   loaded: boolean = false; //loading text 
   enableAdd: boolean = false; // active or not the button
   showUserForm: boolean = false;
+  @ViewChild('userForm')form: any;
 
   constructor() { //injected
   }
@@ -55,22 +56,19 @@ export class UsersComponent implements OnInit {
     this.loaded = true;
   }
 
-  // addUser() {
-  //   this.user.isActive = true;
-  //   this.user.registered = new Date();
+  onSubmit({value, valid} : {value: User, valid:BooleanConstructor}) {
+    if(!valid){
+      console.log('form not valid');
+    }else{
+      value.isActive = true;
+      value.registered = new Date();
+      value.hide = true;
 
-  //   this.users.unshift(this.user); //unshift = push but sent to the beginning of the array
+      this.users.unshift(value);
 
-  //   this.user = {
-  //     firstName: '',
-  //     lastName: '',
-  //     email:''
-  //   }
-  // }
+      this.form.reset();
 
-  onSubmit(e) {
-    console.log(123)
-    e.preventDefault();
+    }
   }
 
 
