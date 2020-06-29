@@ -1,5 +1,25 @@
-<h2> Users</h2>
-<button (click)="addUser({firstName: 'Mary', lastName:'Williams', isActive: true})" [disabled]="!enableAdd" class="btn btn-block mb-3"> Add New User</button>
+
+<button (click)="showUserForm = !showUserForm" class="btn btn-dark mb-3"> Add User</button>
+<div class="card card-body mb-3" *ngIf="showUserForm">
+  <h2>Add User</h2>
+  <form (submit)="onSubmit($event)">
+    <div class="form-group">
+      <label>First Name</label>
+      <input (keydown)="fireEvent($event)" tye="text" class="form-control" name="firstName">
+      <input (keypress)="fireEvent($event)" tye="text" class="form-control" name="firstName">
+      <input (keyup)="fireEvent($event)" tye="text" class="form-control" name="firstName">
+      <input (focus)="fireEvent($event)" tye="text" class="form-control" name="firstName">
+      <input (blur)="fireEvent($event)" tye="text" class="form-control" name="firstName">
+      <input (cut)="fireEvent($event)" tye="text" class="form-control" name="firstName">
+      <!-- exemple: not let the user paste a text -->
+      <input (paste)="fireEvent($event)" tye="text" class="form-control" name="firstName">
+      <input (copy)="fireEvent($event)" tye="text" class="form-control" name="firstName">
+
+    </div>
+    <button (click)="addUser({firstName: 'Mary', lastName:'Williams', isActive: true})" [disabled]="!enableAdd" class="btn btn-block mb-3"> Add New User</button>
+
+  </form>
+</div>
 
 <ul class="list-unstyled" *ngIf=" loaded && users?.length > 0;">
   <li class="card card-body mb-2" *ngFor="let user of users">
