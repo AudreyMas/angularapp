@@ -9,6 +9,7 @@ export interface User {
   },
   isActive?:boolean,
   registered?: any, 
+  hide?: boolean,
 }
 
 // ? = not mendatory
