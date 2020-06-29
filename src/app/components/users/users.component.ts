@@ -65,6 +65,10 @@ export class UsersComponent implements OnInit {
     this.users.push(user);
   }
 
+  fireEvent(e) {
+    // console.log('Button click');
+    console.log(e.type) // Have all the information about the click of the button
+  }
 
 
 }
