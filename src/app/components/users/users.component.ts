@@ -8,7 +8,7 @@ import { User } from '../../models/User'
 })
 export class UsersComponent implements OnInit {
   users: User[];
-  showExtended: boolean = true; //show informations about user
+  showExtended: boolean = false; //show informations about user
   loaded: boolean = false; //loading text 
   enableAdd: boolean= true; // active or not the button
 
