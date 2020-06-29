@@ -1,14 +1,14 @@
 // INTERFACE = model for the data  = MAP oject with the creation of MODELS => User.ts
 
-import {Component, OnInit} from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { Statement } from '@angular/compiler';
 
-import {User} from '../../models/User'
+import { User } from '../../models/User'
 
 @Component({
-  selector:'app-user',
+  selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls:['./User.component.scss'],
+  styleUrls: ['./User.component.scss'],
 })
 
 export class UserComponent implements OnInit {
@@ -16,19 +16,14 @@ export class UserComponent implements OnInit {
   user: User;
 
   // Methods
-  constructor(){ // Add the Datas
-  
+  constructor() { // Add the Datas
+
   }
-  ngOnInit(){
-    this.user={
+  ngOnInit() {
+    this.user = {
       firstName: 'John',
       lastName: 'Doe',
-      age: 30,
-      address: {
-        street: '50 Main st',
-        city: 'Boston',
-        state: 'MA',
-      }
+      email: '',
     }
   }
 
