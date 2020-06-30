@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 //ViewChild get access to the child component
-import { User } from '../../models/User'
+import { User } from '../../models/User';
+import {DataService} from '../../services/data.service';
+
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
@@ -19,40 +21,16 @@ export class UsersComponent implements OnInit {
   showUserForm: boolean = false;
   @ViewChild('userForm')form: any;
 
-  constructor() { //injected
+  constructor(private dataService: DataService) { //injected
+
   }
 
 
   //Methods
   ngOnInit() { //ajx place or service
 
-    this.users = [
-      {
-        firstName: 'John',
-        lastName: 'Doe',
-        email:'John@gmail.com',
-        isActive: true,
-        registered: new Date('01/02/2018 08:30:00'),
-        hide: true,
-      },
-      {
-        firstName: 'Kevin',
-        lastName: 'lala',
-        email:'Kevin@mail.be',
-        isActive: false,
-        registered: new Date('03/11/2017 06:30:00'),
-        hide: true,
-      },
-      {
-        firstName: 'Karen',
-        lastName: 'Polo',
-        email:'karen@mail.com',
-        isActive: true,
-        registered: new Date('11/02/2016 10:30:00'),
-        hide: true,
-      }
-    ];
-
+   this.users = this.dataService.getUsers();
+    
     this.loaded = true;
   }
 

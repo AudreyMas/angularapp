@@ -8,6 +8,8 @@ import { UserComponent } from './components/user/user.component';
 import { UsersComponent } from './components/users/users.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
+import {DataService} from './services/data.service';
+
 @NgModule({
   declarations: [//hold new components
     AppComponent,
@@ -20,7 +22,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     AppRoutingModule,
     FormsModule,
   ],
-  providers: [], // hold API
+  providers: [DataService], // hold API and Services
   bootstrap: [AppComponent]
 })
 export class AppModule { }
