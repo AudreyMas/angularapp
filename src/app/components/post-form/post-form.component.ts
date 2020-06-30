@@ -24,7 +24,6 @@ export class PostFormComponent implements OnInit {
 
   addPost(title, body) {
     if (!title || !body) {
-
       alert('Please add post');
     }
     else {
@@ -35,8 +34,10 @@ export class PostFormComponent implements OnInit {
     }
   }
 
-  updatePost(){
-    console.log(1233)
+  updatePost() {
+    this.postService.updatePost(this.currentPost).subscribe(
+      post => console.log(post));
+
   }
 
 }
