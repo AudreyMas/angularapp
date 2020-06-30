@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 //ViewChild get access to the child component
 import { User } from '../../models/User';
-import {DataService} from '../../services/data.service';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-users',
@@ -22,7 +22,7 @@ export class UsersComponent implements OnInit {
   @ViewChild('userForm')form: any;
   data: any;
 
-  constructor(private dataService: DataService) { //injected
+  constructor(private dataService: UserService) { //injected
 
   }
 
@@ -33,10 +33,13 @@ export class UsersComponent implements OnInit {
     this.dataService.getData().subscribe(data => {
       console.log(data);
     });
-   this.users = this.dataService.getUsers();
+
+   this.dataService.getUsers().subscribe(users => {
+     this.users = users;
+     this.loaded = true;
+   });
 
     
-    this.loaded = true;
   }
 
   onSubmit({value, valid} : {value: User, valid:BooleanConstructor}) {

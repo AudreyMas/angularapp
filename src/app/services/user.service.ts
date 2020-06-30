@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
+import {of} from 'rxjs';
 import { User } from '../models/User';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class DataService {
+export class UserService {
   users: User[];
   data: Observable<any>;
 
@@ -65,8 +65,8 @@ export class DataService {
   }
 
 
-  getUsers(): User[] {
-    return this.users;
+  getUsers(): Observable<User[]> {
+    return of(this.users);
   }
 
   addUser(user: User) {
