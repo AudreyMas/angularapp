@@ -20,6 +20,7 @@ export class UsersComponent implements OnInit {
   enableAdd: boolean = false; // active or not the button
   showUserForm: boolean = false;
   @ViewChild('userForm')form: any;
+  data: any;
 
   constructor(private dataService: DataService) { //injected
 
@@ -29,7 +30,11 @@ export class UsersComponent implements OnInit {
   //Methods
   ngOnInit() { //ajx place or service
 
+    this.dataService.getData().subscribe(data => {
+      console.log(data);
+    });
    this.users = this.dataService.getUsers();
+
     
     this.loaded = true;
   }
