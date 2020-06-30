@@ -15,8 +15,7 @@ posts: Post[];
 
   ngOnInit() {
     this.postService.getPosts().subscribe(posts=> {
-      console.log(posts);
-    })
+this.posts =posts;    })
 
   }
 
