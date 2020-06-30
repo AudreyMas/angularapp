@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {PostService} from '../../services/post.service';
+import { PostService } from '../../services/post.service';
 
-import {Post} from '../../models/Post'
+import { Post } from '../../models/Post'
 
 @Component({
   selector: 'app-posts',
@@ -9,13 +9,19 @@ import {Post} from '../../models/Post'
   styleUrls: ['./posts.component.scss']
 })
 export class PostsComponent implements OnInit {
-posts: Post[];
+  posts: Post[];
 
   constructor(private postService: PostService) { }
 
   ngOnInit() {
-    this.postService.getPosts().subscribe(posts=> {
-this.posts =posts;    })
+    this.postService.getPosts().subscribe(posts => {
+      this.posts = posts;
+    })
+
+  }
+
+  onNewPost(post: Post){ //post with the type=Post
+    this.posts.unshift(post); // push the new post
 
   }
 
