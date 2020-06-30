@@ -3,16 +3,22 @@
     <a routerLink="/" class="navbar-brand">Angular App</a>
     <div>
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
+        <li class="nav-item" [routerLinkActive]="['actiive']"
+          [routerLinkActiveOptions]="{exacy: true}">
           <a routerLink="/" class="nav-link">Home</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" [routerLinkActive]="['actiive']" [routerLinkActiveOptions]="{exacy: true}">
           <a routerLink="/users" class="nav-link">Users</a>
         </li>
-        <li class="nav-item">
-          <a routerLink="/posts" class="nav-link">Posts</a> 
+        <li class="nav-item" [routerLinkActive]="['actiive']" [routerLinkActiveOptions]="{exacy: true}">
+          <a routerLink="/posts" class="nav-link">Posts</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+
+<!-- [routerLinkActiveOptions]="{exacy: true}"
+= to have active link on the navbar
+
+-->
