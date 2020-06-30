@@ -43,4 +43,8 @@ getUsers(): User[]{
   return this.users;
 }
 
+addUser(user: User){
+  this.users.unshift(user); //unshift=push
+}
+
 }
